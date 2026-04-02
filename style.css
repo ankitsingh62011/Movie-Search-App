@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    width: 60%;
+    padding: 12px;
+    border-radius: 25px 0 0 25px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-box button {
+    padding: 12px 25px;
+    border-radius: 0 25px 25px 0;
+    border: none;
+    cursor: pointer;
+    background: #ff9800;
+    color: black;
+    font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.search-box button:hover {
+    background: #ffc107;
+    transform: scale(1.05);
+}
+
+.movie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.movie-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.4s, box-shadow 0.4s;
+    animation: slideUp 0.8s ease-in-out;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.movie-card h3 {
+    font-size: 18px;
+}
+
+.movie-card p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.suggestions-box {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    width: 60%;
+    max-height: 250px;
+    overflow-y: auto;
+    border-radius: 10px;
+    margin-top: 5px;
+    display: none;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: left;
+}
+
+.suggestion-item:hover {
+    background: #ff9800;
+    color: black;
+}
+
+/* Fix position */
+.search-box {
+    position: relative;
+}
+
